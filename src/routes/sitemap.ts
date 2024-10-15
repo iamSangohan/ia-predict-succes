@@ -1,4 +1,4 @@
-import paths from 'routes/paths';
+// import paths from 'routes/paths';
 
 export interface SubMenuItem {
   name: string;
@@ -19,62 +19,63 @@ export interface MenuItem {
   items?: SubMenuItem[];
 }
 
+// Toutes les routes du sites sont là
 const sitemap: MenuItem[] = [
   {
     id: 'dashboard',
-    subheader: 'Dashboard',
+    subheader: 'Tableau de bord',
     path: '/',
     icon: 'ri:dashboard-fill',
     active: true,
   },
   {
     id: 'activity',
-    subheader: 'Activity',
-    path: '#!',
+    subheader: 'Gestion des etudiants',
+    path: '/students',
     icon: 'ic:baseline-show-chart',
   },
   {
     id: 'library',
-    subheader: 'Library',
-    path: '#!',
+    subheader: 'Recommandations',
+    path: '/recommandation',
     icon: 'material-symbols:local-library-outline',
   },
-  {
-    id: 'authentication',
-    subheader: 'Authentication',
-    icon: 'ic:round-security',
-    active: true,
-    items: [
-      {
-        name: 'Sign In',
-        pathName: 'signin',
-        path: paths.signin,
-      },
-      {
-        name: 'Sign Up',
-        pathName: 'signup',
-        path: paths.signup,
-      },
-    ],
-  },
-  {
-    id: 'schedules',
-    subheader: 'Schedules',
-    path: '#!',
-    icon: 'ic:outline-calendar-today',
-  },
-  {
-    id: 'payouts',
-    subheader: 'Payouts',
-    path: '#!',
-    icon: 'material-symbols:account-balance-wallet-outline',
-  },
-  {
-    id: 'settings',
-    subheader: 'Settings',
-    path: '#!',
-    icon: 'ic:outline-settings',
-  },
+  // {
+  //   id: 'authentication',
+  //   subheader: 'Authentication',
+  //   icon: 'ic:round-security',
+  //   active: true,
+  //   items: [
+  //     {
+  //       name: 'Sign In',
+  //       pathName: 'signin',
+  //       path: paths.signin,
+  //     },
+  //     {
+  //       name: 'Sign Up',
+  //       pathName: 'signup',
+  //       path: paths.signup,
+  //     },
+  //   ],
+  // },
+  // {
+  //   id: 'schedules',
+  //   subheader: 'Schedules',
+  //   path: '#!',
+  //   icon: 'ic:outline-calendar-today',
+  // },
+  // {
+  //   id: 'payouts',
+  //   subheader: 'Payouts',
+  //   path: '#!',
+  //   icon: 'material-symbols:account-balance-wallet-outline',
+  // },
+  // {
+  //   id: 'settings',
+  //   subheader: 'Settings',
+  //   path: '#!',
+  //   icon: 'ic:outline-settings',
+  // },
 ];
 
 export default sitemap;

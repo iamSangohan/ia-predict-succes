@@ -13,9 +13,12 @@ import IconifyIcon from 'components/base/IconifyIcon';
 import LogoImg from 'assets/images/logo.png';
 import sitemap from 'routes/sitemap';
 
+
+// SideNavBar avec les differents menus
 const DrawerItems = () => {
   return (
     <>
+      {/* Logo */}
       <Stack
         pt={5}
         pb={3.5}
@@ -40,7 +43,7 @@ const DrawerItems = () => {
               letterSpacing={1}
               fontFamily={fontFamily.poppins}
             >
-              Venus
+              AI-Learn
             </Typography>
             <Typography
               mt={-0.35}
@@ -50,12 +53,13 @@ const DrawerItems = () => {
               fontWeight={500}
               fontFamily={fontFamily.poppins}
             >
-              Dashboard
+              Success predict
             </Typography>
           </Box>
         </ButtonBase>
       </Stack>
 
+      {/* Liste des menus */}
       <List component="nav" sx={{ mt: 2.5, mb: 10, px: 4.5 }}>
         {sitemap.map((route) =>
           route.items ? (
@@ -66,6 +70,7 @@ const DrawerItems = () => {
         )}
       </List>
 
+      {/* Bas de liste */}
       <Box mt="auto" px={3} pb={6}>
         <Button variant="text" startIcon={<IconifyIcon icon="ic:baseline-logout" />}>
           Log Out

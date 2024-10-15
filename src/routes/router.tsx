@@ -9,6 +9,7 @@ import AuthLayout from 'layouts/auth-layout';
 
 const App = lazy(() => import('App'));
 const Dashboard = lazy(() => import('pages/dashboard/Dashbaord'));
+const Students = lazy(() => import('pages/students/Students'));
 const Signin = lazy(() => import('pages/authentication/Signin'));
 const Signup = lazy(() => import('pages/authentication/Signup'));
 
@@ -23,6 +24,38 @@ const router = createBrowserRouter(
       children: [
         {
           path: '/',
+          element: (
+            <MainLayout>
+              <Suspense fallback={<PageLoader />}>
+                <Outlet />
+              </Suspense>
+            </MainLayout>
+          ),
+          children: [
+            {
+              index: true,
+              element: <Dashboard />,
+            },
+          ],
+        },
+        {
+          path: '/students',
+          element: (
+            <MainLayout>
+              <Suspense fallback={<PageLoader />}>
+                <Outlet />
+              </Suspense>
+            </MainLayout>
+          ),
+          children: [
+            {
+              index: true,
+              element: <Students />,
+            },
+          ],
+        },
+        {
+          path: '/recommandation',
           element: (
             <MainLayout>
               <Suspense fallback={<PageLoader />}>

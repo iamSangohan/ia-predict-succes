@@ -25,6 +25,7 @@ const Sidebar = ({ mobileOpen, setMobileOpen, setIsClosing }: SidebarProps) => {
       flexShrink={{ lg: 0 }}
       display={{ xs: 'none', lg: 'block' }}
     >
+      {/* Mobile */}
       <Drawer
         variant="temporary"
         open={mobileOpen}
@@ -36,6 +37,7 @@ const Sidebar = ({ mobileOpen, setMobileOpen, setIsClosing }: SidebarProps) => {
         <DrawerItems />
       </Drawer>
 
+      {/* PC */}
       <Drawer variant="permanent" sx={{ display: { xs: 'none', lg: 'block' } }} open>
         <DrawerItems />
       </Drawer>
