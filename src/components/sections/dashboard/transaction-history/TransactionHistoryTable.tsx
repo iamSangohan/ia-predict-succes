@@ -4,11 +4,11 @@ import Stack from '@mui/material/Stack';
 import { DataGrid, GridColDef, useGridApiRef, GridApi } from '@mui/x-data-grid';
 import DataGridFooter from 'components/common/DataGridFooter';
 import { rows } from 'data/transactionHistory';
-import { Typography, IconButton } from '@mui/material';
+import { Typography } from '@mui/material';
 import ActionMenu from './ActionMenu';
 
 // import VisibilityIcon from '@mui/icons-material/Visibility';
-import IconifyIcon from 'components/base/IconifyIcon';
+// import IconifyIcon from 'components/base/IconifyIcon';
 
 const columns: GridColDef<(typeof rows)[number]>[] = [
   {
@@ -86,14 +86,7 @@ const columns: GridColDef<(typeof rows)[number]>[] = [
     sortable: false,
     flex: 1,
     minWidth: 100,
-    renderHeader: () => (
-        <IconButton
-          sx={{ p: 0.75, border: 'none', bgcolor: 'transparent !important' }}
-          size="medium"
-        >
-          <IconifyIcon icon="solar:eye-bold" color="text.primary" />
-        </IconButton>
-    ),
+    
     renderCell: (params) => <ActionMenu student_id={params.row.id} />, // Passer l'ID de la ligne comme paramètre par défaut
   },
 ];
