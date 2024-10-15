@@ -34,6 +34,12 @@ const sitemap: MenuItem[] = [
     path: '/students',
     icon: 'ic:baseline-show-chart',
   },
+  // {
+  //   id: 'notification',
+  //   subheader: 'Notification',
+  //   path: '/notification',
+  //   icon: 'ic:baseline-notifications',
+  // },
   {
     id: 'library',
     subheader: 'Recommandations',

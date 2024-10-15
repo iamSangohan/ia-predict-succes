@@ -6,6 +6,7 @@ import MainLayout from 'layouts/main-layout';
 import Splash from 'components/loader/Splash';
 import PageLoader from 'components/loader/PageLoader';
 import AuthLayout from 'layouts/auth-layout';
+import Notification from 'pages/notification/notification';
 
 const App = lazy(() => import('App'));
 const Dashboard = lazy(() => import('pages/dashboard/Dashbaord'));
@@ -54,6 +55,39 @@ const router = createBrowserRouter(
             },
           ],
         },
+        {
+          path: '/notification',
+          element: (
+            <MainLayout>
+              <Suspense fallback={<PageLoader />}>
+                <Outlet />
+              </Suspense>
+            </MainLayout>
+          ),
+          children: [
+            {
+              index: true,
+              element: <Notification/>,
+            },
+          ],
+        },
+        {
+          path: '/recommandation',
+          element: (
+            <MainLayout>
+              <Suspense fallback={<PageLoader />}>
+                <Outlet />
+              </Suspense>
+            </MainLayout>
+          ),
+          children: [
+            {
+              index: true,
+              element: <Dashboard />,
+            },
+          ],
+        },
+
         {
           path: '/recommandation',
           element: (
