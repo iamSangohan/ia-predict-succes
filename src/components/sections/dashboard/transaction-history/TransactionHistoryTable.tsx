@@ -4,20 +4,23 @@ import Stack from '@mui/material/Stack';
 import { DataGrid, GridColDef, useGridApiRef, GridApi } from '@mui/x-data-grid';
 import DataGridFooter from 'components/common/DataGridFooter';
 import { rows } from 'data/transactionHistory';
-import { Typography } from '@mui/material';
+import { Typography, IconButton } from '@mui/material';
 import ActionMenu from './ActionMenu';
+
+// import VisibilityIcon from '@mui/icons-material/Visibility';
+import IconifyIcon from 'components/base/IconifyIcon';
 
 const columns: GridColDef<(typeof rows)[number]>[] = [
   {
     field: 'id',
-    headerName: 'Transaction Id',
+    headerName: "Etudiant",
     editable: false,
     align: 'left',
     flex: 2,
-    minWidth: 160,
+    minWidth: 300,
     renderHeader: () => (
       <Typography variant="body2" fontWeight={600} ml={1}>
-        Transaction Id
+        Etudiant
       </Typography>
     ),
     renderCell: (params) => (
@@ -34,7 +37,7 @@ const columns: GridColDef<(typeof rows)[number]>[] = [
     editable: false,
     align: 'left',
     flex: 2,
-    minWidth: 140,
+    minWidth: 120,
   },
   {
     field: 'date',
@@ -42,7 +45,7 @@ const columns: GridColDef<(typeof rows)[number]>[] = [
     editable: false,
     align: 'left',
     flex: 2,
-    minWidth: 160,
+    minWidth: 120,
   },
   {
     field: 'amount',
@@ -50,15 +53,7 @@ const columns: GridColDef<(typeof rows)[number]>[] = [
     editable: false,
     align: 'left',
     flex: 2,
-    minWidth: 120,
-  },
-  {
-    field: 'paymentMethod',
-    headerName: 'Payment Method',
-    editable: false,
-    align: 'left',
-    flex: 2,
-    minWidth: 150,
+    minWidth: 100,
   },
   {
     field: 'status',
@@ -84,15 +79,6 @@ const columns: GridColDef<(typeof rows)[number]>[] = [
     },
   },
   {
-    field: 'balance',
-    headerName: 'Balance',
-    headerAlign: 'right',
-    align: 'right',
-    editable: false,
-    flex: 1,
-    minWidth: 100,
-  },
-  {
     field: 'action',
     headerAlign: 'right',
     align: 'right',
@@ -100,8 +86,15 @@ const columns: GridColDef<(typeof rows)[number]>[] = [
     sortable: false,
     flex: 1,
     minWidth: 100,
-    renderHeader: () => <ActionMenu />,
-    renderCell: () => <ActionMenu />,
+    renderHeader: () => (
+        <IconButton
+          sx={{ p: 0.75, border: 'none', bgcolor: 'transparent !important' }}
+          size="medium"
+        >
+          <IconifyIcon icon="solar:eye-bold" color="text.primary" />
+        </IconButton>
+    ),
+    renderCell: (params) => <ActionMenu student_id={params.row.id} />, // Passer l'ID de la ligne comme paramètre par défaut
   },
 ];
 
@@ -113,6 +106,7 @@ const TransactionHistoryTable = ({ searchText }: TaskOverviewTableProps) => {
   const apiRef = useGridApiRef<GridApi>();
 
   useEffect(() => {
+    // Faire les recherches dans la table en function de la valeur de searchText
     apiRef.current.setQuickFilterValues(searchText.split(/\b\W+\b/).filter((word) => word !== ''));
   }, [searchText]);
 
@@ -122,13 +116,13 @@ const TransactionHistoryTable = ({ searchText }: TaskOverviewTableProps) => {
       density="standard"
       columns={columns}
       rows={rows}
-      rowHeight={52}
+      rowHeight={60}
       disableColumnResize
       disableColumnMenu
       disableColumnSelector
       disableRowSelectionOnClick
       initialState={{
-        pagination: { paginationModel: { pageSize: 4 } },
+        pagination: { paginationModel: { pageSize: 10 } },
       }}
       autosizeOptions={{
         includeOutliers: true,
@@ -139,7 +133,7 @@ const TransactionHistoryTable = ({ searchText }: TaskOverviewTableProps) => {
       slots={{
         pagination: DataGridFooter,
       }}
-      checkboxSelection
+      // checkboxSelection
       pageSizeOptions={[5]}
     />
   );
