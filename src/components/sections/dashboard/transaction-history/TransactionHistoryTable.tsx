@@ -7,17 +7,20 @@ import { rows } from 'data/transactionHistory';
 import { Typography } from '@mui/material';
 import ActionMenu from './ActionMenu';
 
+// import VisibilityIcon from '@mui/icons-material/Visibility';
+import IconifyIcon from 'components/base/IconifyIcon';
+
 const columns: GridColDef<(typeof rows)[number]>[] = [
   {
     field: 'id',
-    headerName: 'Transaction Id',
+    headerName: "Etudiant",
     editable: false,
     align: 'left',
     flex: 2,
-    minWidth: 160,
+    minWidth: 300,
     renderHeader: () => (
       <Typography variant="body2" fontWeight={600} ml={1}>
-        Transaction Id
+        Etudiant
       </Typography>
     ),
     renderCell: (params) => (
@@ -34,7 +37,7 @@ const columns: GridColDef<(typeof rows)[number]>[] = [
     editable: false,
     align: 'left',
     flex: 2,
-    minWidth: 140,
+    minWidth: 150,
   },
   {
     field: 'date',
@@ -84,15 +87,6 @@ const columns: GridColDef<(typeof rows)[number]>[] = [
     },
   },
   {
-    field: 'balance',
-    headerName: 'Balance',
-    headerAlign: 'right',
-    align: 'right',
-    editable: false,
-    flex: 1,
-    minWidth: 100,
-  },
-  {
     field: 'action',
     headerAlign: 'right',
     align: 'right',
@@ -100,8 +94,10 @@ const columns: GridColDef<(typeof rows)[number]>[] = [
     sortable: false,
     flex: 1,
     minWidth: 100,
-    renderHeader: () => <ActionMenu />,
-    renderCell: () => <ActionMenu />,
+    renderHeader: () => (
+      <IconifyIcon icon="solar:eye-bold" color="text.primary" />
+    ),
+    renderCell: (params) => <ActionMenu student_id={params.row.id} />, // Passer l'ID de la ligne comme paramètre par défaut
   },
 ];
 
