@@ -49,7 +49,7 @@ const Students = () => {
         <CreditBalance />
       </Grid> */}
 
-      <Grid item xs={12} md={8}>
+      <Grid item xs={12}>
         <TransactionHistory />
       </Grid>
     </Grid>
