@@ -56,6 +56,10 @@ const router = createBrowserRouter(
               index: true,
               element: <Students />,
             },
+            {
+              path: ':studentId',
+              element: <Student />,
+            },
 
           ],
         },
@@ -92,16 +96,7 @@ const router = createBrowserRouter(
           ],
         },
 
-        {
-          path: '/recommandation',
-          element: (
 
-            {
-              path: ':studentId',
-              element: <Student />,
-            },
-            ],
-          },
           {
             path: '/recommandation',
             element: (
