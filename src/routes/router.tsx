@@ -6,6 +6,7 @@ import MainLayout from 'layouts/main-layout';
 import Splash from 'components/loader/Splash';
 import PageLoader from 'components/loader/PageLoader';
 import AuthLayout from 'layouts/auth-layout';
+import Student from 'pages/students/Student';
 
 const App = lazy(() => import('App'));
 const Dashboard = lazy(() => import('pages/dashboard/Dashbaord'));
@@ -46,17 +47,21 @@ const router = createBrowserRouter(
                 <Outlet />
               </Suspense>
             </MainLayout>
-          ),
-          children: [
+            ),
+            children: [
             {
               index: true,
               element: <Students />,
             },
-          ],
-        },
-        {
-          path: '/recommandation',
-          element: (
+            {
+              path: ':studentId',
+              element: <Student />,
+            },
+            ],
+          },
+          {
+            path: '/recommandation',
+            element: (
             <MainLayout>
               <Suspense fallback={<PageLoader />}>
                 <Outlet />

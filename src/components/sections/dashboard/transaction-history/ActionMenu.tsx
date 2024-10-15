@@ -1,5 +1,5 @@
 // import { useState } from 'react';
-// import { useNavigate } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 import Box from '@mui/material/Box';
 // import Menu from '@mui/material/Menu';
 import IconButton from '@mui/material/IconButton';
@@ -10,11 +10,10 @@ interface ActionMenuProps {
 }
 
 const ActionMenu: React.FC<ActionMenuProps> = ({ student_id }) => {
-  // const navigate = useNavigate();
+  const navigate = useNavigate();
 
   const handleIconClick = () => {
-    console.log(student_id);
-
+    navigate(`/students/${student_id}`);
   };
 
   return (
