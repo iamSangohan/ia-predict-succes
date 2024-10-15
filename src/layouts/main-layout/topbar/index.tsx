@@ -75,7 +75,7 @@ const Topbar = ({ isClosing, mobileOpen, setMobileOpen }: TopbarProps) => {
       </Stack>
 
       <Stack spacing={{ xs: 1, sm: 2 }} alignItems="center">
-        <IconButton size="large">
+        <IconButton size="large" href='/venus/notification'>
           <Badge badgeContent={2} color="error">
             <IconifyIcon icon="ic:outline-notifications-none" />
           </Badge>
