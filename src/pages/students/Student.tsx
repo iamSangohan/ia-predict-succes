@@ -1,4 +1,4 @@
-import { useParams } from 'react-router-dom';
+import { useLocation, useParams } from 'react-router-dom';
 import Grid from '@mui/material/Grid';
 import AvatarCard from 'components/sections/dashboard/avatar-card';
 import PersonalInfo from 'components/sections/dashboard/personal-info';
@@ -7,6 +7,9 @@ import CourseHistory from 'components/sections/dashboard/courses';
 
 const Student = () => {
     const { studentId } = useParams<{ studentId: string }>();
+    const location = useLocation();
+    const student = location.state?.student;
+    console.log(student);
     
     return (
         <Grid container spacing={2.5}>
@@ -14,7 +17,7 @@ const Student = () => {
                 <AvatarCard />
             </Grid>
             <Grid item xs={12} md={8}>
-                <PersonalInfo />
+                <PersonalInfo student={student} />
             </Grid>
             <Grid item xs={12}>
                 {studentId}

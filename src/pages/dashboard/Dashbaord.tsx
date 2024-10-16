@@ -8,9 +8,10 @@ import Transactions from 'components/sections/dashboard/transactions';
 import Tasks from 'components/sections/dashboard/tasks';
 import Earnings from 'components/sections/dashboard/earnings';
 import CreditBalance from 'components/sections/dashboard/credit-balance';
-import TransactionHistory from 'components/sections/dashboard/transaction-history';
+// import TransactionHistory from 'components/sections/dashboard/transaction-history';
 
 const Dashbaord = () => {
+
   return (
     <Grid container spacing={2.5}>
       <Grid item xs={12}>
@@ -48,10 +49,10 @@ const Dashbaord = () => {
       <Grid item xs={12} md={4}>
         <CreditBalance />
       </Grid>
-
+{/* 
       <Grid item xs={12} md={8}>
         <TransactionHistory />
-      </Grid>
+      </Grid> */}
     </Grid>
   );
 };

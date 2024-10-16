@@ -1,19 +1,19 @@
-// import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import Box from '@mui/material/Box';
-// import Menu from '@mui/material/Menu';
 import IconButton from '@mui/material/IconButton';
 import IconifyIcon from 'components/base/IconifyIcon';
 
 interface ActionMenuProps {
-  student_id: string | number; // or the appropriate type
+  student: {
+    id_student: string | number;
+  };
 }
 
-const ActionMenu: React.FC<ActionMenuProps> = ({ student_id }) => {
+const ActionMenu: React.FC<ActionMenuProps> = ({ student }) => {
   const navigate = useNavigate();
 
   const handleIconClick = () => {
-    navigate(`/students/${student_id}`);
+    navigate(`/students/${student.id_student}`, { state: { student } });
   };
 
   return (
@@ -25,7 +25,6 @@ const ActionMenu: React.FC<ActionMenuProps> = ({ student_id }) => {
       >
         <IconifyIcon icon="solar:eye-bold" color="text.primary" />
       </IconButton>
-
     </Box>
   );
 };
